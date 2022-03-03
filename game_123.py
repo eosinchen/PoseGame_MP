@@ -8,9 +8,9 @@ from PIL import Image, ImageDraw, ImageFont
 # 設定遊玩次數
 game_total_count = 5
 # 設定自由活動秒數
-game_free_time = 5
+game_free_time = 10
 # 設定停止活動秒數
-game_stop_time = 5
+game_stop_time = 10
 
 
 # 顯示中文字之副程式
