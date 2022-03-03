@@ -20,7 +20,7 @@ def pose_estimation(image):
     results = pose.process(image)
 
     if not results.pose_landmarks:
-        # 將 image 座左右翻轉與回傳
+        # 將 image 色調調回，翻轉與回傳
         return cv2.flip(cv2.cvtColor(image, cv2.COLOR_RGB2BGR), 1)
 
     # 取得影像的高與寬
@@ -28,7 +28,7 @@ def pose_estimation(image):
     # 顯示鼻子的座標 mp_pose.PoseLandmark.NOSE
     print(
         f'Nose coordinates: ('
-        f'{results.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].x * image_width}, '
+        f'{results.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].x * image_width},'
         f'{results.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].y * image_height},'
         f'{results.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].z},'
         f'{results.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].visibility})'

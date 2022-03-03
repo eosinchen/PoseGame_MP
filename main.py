@@ -3,6 +3,7 @@
 import cv2
 import time
 import mediapipe_pose
+import game_123
 
 
 # 單純開啟攝影機，與擷取畫面做顯示
@@ -51,10 +52,11 @@ def open_camera_and_show_fps(camera_num):
             prev_frame_time = new_frame_time
 
             # 取小數點兩位，並轉換成字串
-            fps = 'fps:' + str(round(fps, 2))
+            fps = '目前 fps:' + str(round(fps, 2))
 
             # putting the FPS count on the frame
-            cv2.putText(image, fps, (10, 30), font, 1, (100, 255, 0), 2, cv2.LINE_AA)
+            # cv2.putText(image, fps, (10, 30), font, 1, (100, 255, 0), 2, cv2.LINE_AA)
+            image = game_123.add_chinese_font_to_image(image, fps, 10, 10)
 
             # 使用 OpenCV 功能來顯示影像
             cv2.imshow('MediaPipe Pose', image)
@@ -117,4 +119,5 @@ def open_camera_show_fps_pose_estimation(camera_num):
 if __name__ == '__main__':
     # open_camera(0)
     # open_camera_and_show_fps(0)
-    open_camera_show_fps_pose_estimation(0)
+    # open_camera_show_fps_pose_estimation(0)
+    game_123.play_game()
