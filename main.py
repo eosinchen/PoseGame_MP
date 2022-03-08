@@ -1,10 +1,14 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 # This is a sample Project for using MediaPipe in Game.
 # And this is for teaching, so this is only demo, not a real game.
 import cv2
 import time
 import mediapipe_pose
+import mediapipe_hand
 import game_123
-
+import game_hand
 
 # 單純開啟攝影機，與擷取畫面做顯示
 def open_camera(camera_num):
@@ -89,6 +93,7 @@ def open_camera_show_fps_pose_estimation(camera_num):
         if success:
             # 傳入 MediaPipe 模組，進行 Pose 評估
             image = mediapipe_pose.pose_estimation(image)
+            # image, right_box, left_box = mediapipe_hand.hands_estimation(image)
 
             # 從 time.time() 中取得時間
             new_frame_time = time.time()
@@ -121,3 +126,4 @@ if __name__ == '__main__':
     # open_camera_and_show_fps(0)
     # open_camera_show_fps_pose_estimation(0)
     game_123.play_game()
+    # game_hand.play_game()
