@@ -10,6 +10,7 @@ import mediapipe_hand
 import game_123
 import game_hand
 
+
 # 單純開啟攝影機，與擷取畫面做顯示
 def open_camera(camera_num):
     cap = cv2.VideoCapture(camera_num, cv2.CAP_DSHOW)

@@ -172,7 +172,7 @@ def play_game():
                         # 若有移動，就作顯示
                         image = add_chinese_font_to_image(image, "[你已移動]", 10, 120, text_color=(255, 0, 0), text_size=30)
 
-                # 當秒數為 10 時，更新次數與回覆時間值
+                # 當秒數大於一個 loop 時，更新次數與回覆時間值
                 if time_interval >= game_free_time + game_stop_time:
                     begin_time = 0
                     play_loop_count += 1

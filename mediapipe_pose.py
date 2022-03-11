@@ -103,7 +103,7 @@ def draw_nose_rect(image, pose_result, first_stop=False):
     if up_x < 0:
         up_x = 0
 
-    up_y = nose_x - 150
+    up_y = nose_y - 150
     if up_y < 0:
         up_y = 0
 
