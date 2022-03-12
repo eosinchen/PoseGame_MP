@@ -5,6 +5,7 @@
 # And this is for teaching, so this is only demo, not a real game.
 import cv2
 import mediapipe as mp
+import game_hand
 
 # mediapipe 的繪圖與線條格式物件
 mp_drawing = mp.solutions.drawing_utils
@@ -12,11 +13,23 @@ mp_drawing_styles = mp.solutions.drawing_styles
 
 # 建立 hand 物件
 mp_hands = mp.solutions.hands
-hands = mp_hands.Hands(model_complexity=0, min_detection_confidence=0.5, min_tracking_confidence=0.5)
+hands = mp_hands.Hands(model_complexity=0, min_detection_confidence=0.7, min_tracking_confidence=0.7)
 
 
 # 利用 MediaPipe Hands 進行動作評估
-def hands_estimation(image, r_up_x, r_up_y, r_down_x, r_down_y, l_up_x, l_up_y, l_down_x, l_down_y):
+def hands_estimation(image, right_box_x, right_box_y, left_box_x, left_box_y):
+
+    # 計算 r-xy 座標
+    r_up_x = int(right_box_x - game_hand.rect_box_width_half)
+    r_up_y = int(right_box_y - game_hand.rect_box_height_half)
+    r_down_x = int(right_box_x + game_hand.rect_box_width_half)
+    r_down_y = int(right_box_y + game_hand.rect_box_height_half)
+
+    # 計算 l-xy 座標
+    l_up_x = int(left_box_x - game_hand.rect_box_width_half)
+    l_up_y = int(left_box_y - game_hand.rect_box_height_half)
+    l_down_x = int(left_box_x + game_hand.rect_box_width_half)
+    l_down_y = int(left_box_y + game_hand.rect_box_height_half)
 
     # 左右兩個 Rect 的評估結果
     in_r_rect = False

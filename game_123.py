@@ -45,7 +45,7 @@ def add_chinese_font_to_image(img, text, left, top, text_color=(0, 255, 0), text
         img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 
     # 中文字型檔
-    font_text = ImageFont.truetype("HYWenHei-75W.ttf", text_size, encoding="utf-8")
+    font_text = ImageFont.truetype("jf-openhuninn-1.1.ttf", text_size, encoding="utf-8")
 
     # 將 img 切換成 PIL 格式
     draw = ImageDraw.Draw(img)
@@ -70,7 +70,7 @@ def decide_file_name():
     # 依序找看看檔銘是否存在，若不存在則用此檔名
     origin_index = 0
     while True:
-        temp_filename = "M" + ("%05d" % origin_index) + ".mp4"
+        temp_filename = "P" + ("%05d" % origin_index) + ".mp4"
 
         if os.path.isfile(temp_filename):
             origin_index += 1
@@ -207,7 +207,7 @@ def play_game():
             if out_movie is not None:
                 out_movie.write(image)
 
-            cv2.imshow('Pose Game', image)
+            cv2.imshow('123 木頭人', cv2.resize(image, (1024, 768), interpolation=cv2.INTER_AREA))
 
         # 需有 waitKey，畫面才會顯示內容
         press_key = cv2.waitKey(5) & 0xFF

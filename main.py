@@ -126,5 +126,5 @@ if __name__ == '__main__':
     # open_camera(0)
     # open_camera_and_show_fps(0)
     # open_camera_show_fps_pose_estimation(0)
-    game_123.play_game()
-    # game_hand.play_game()
+    # game_123.play_game()
+    game_hand.play_game()
