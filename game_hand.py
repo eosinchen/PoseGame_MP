@@ -256,6 +256,11 @@ def play_game():
                     left_box_y = 240
 
             else:
+                # 關閉錄影串流
+                if out_movie is not None:
+                    out_movie.release()
+                    out_movie = None
+
                 # 若在一般模式之下，顯示啟動畫面
                 image = add_chinese_font_to_image(image, "手忙腳亂：請將左右手掌放於框中開始", 10, 10, font_text=font_text_36)
                 image = add_chinese_font_to_image(image, "上次得分：" + str(total_score) + "分", 150, 50, font_text=font_text_48)
